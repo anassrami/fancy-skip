@@ -1,0 +1,73 @@
+.header {
+    background-color: var(--surface-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.progressContainer {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding-bottom: 1rem;
+    position: relative;
+}
+
+.iconWrapper {
+    display: grid;
+    place-items: center;
+}
+
+.step svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+    transition: stroke 0.3s ease;
+}
+
+.step.completed,
+.step.current {
+    color: var(--text-primary);
+}
+
+.step.completed svg,
+.step.current svg {
+    stroke: var(--primary-color);
+}
+
+.step.current {
+    font-weight: 600;
+}
+
+/* The new underline for the current step */
+.step.current::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+
+@media (max-width: 768px) {
+    .step span {
+        display: none;
+    }
+
+    .header {
+        padding: 0.5rem 1rem;
+    }
+}

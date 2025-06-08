@@ -1,0 +1,129 @@
+/* The main container now establishes a flex context for the sticky footer */
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Ensures the container fills its parent grid cell */
+    min-height: 550px;
+    /* Provides a good minimum size */
+    background-color: var(--surface-color);
+    /* Added for clarity */
+    border-radius: 12px;
+    /* Consistent styling */
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+}
+
+.scrollableContent {
+    flex-grow: 1;
+    /* Allows this section to grow and fill available space */
+    /* If content overflows, it will scroll, but the footer will stay put */
+    overflow-y: auto;
+}
+
+.imageContainer {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background-color: var(--background-color);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.skipImage {
+    max-width: 90%;
+    /* 10% smaller as requested */
+    max-height: 90%;
+    object-fit: contain;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.textContainer {
+    text-align: center;
+}
+
+.sizeHeader {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.priceSection {
+    margin: 0.75rem 0 1.5rem 0;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+
+.priceDetail {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.hirePeriod {
+    display: inline-block;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background-color: var(--tag-background);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+/* This is the container for our sticky button */
+.stickyFooter {
+    flex-shrink: 0;
+    /* Prevents the footer from shrinking */
+    padding-top: 1.5rem;
+    /* Space between scrollable content and button */
+    background-color: var(--surface-color);
+    /* To cover content if it scrolls behind */
+}
+
+.continueButton {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--surface-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.continueButton:hover {
+    background-color: #0b5ed7;
+}
+
+.continueButton:active {
+    transform: scale(0.98);
+}

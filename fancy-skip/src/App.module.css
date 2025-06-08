@@ -1,0 +1,142 @@
+.mainContainer {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .mainContainer {
+        padding-bottom: 120px;
+    }
+}
+
+.selectionWrapper {
+    background-color: var(--surface-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0 0 2.5rem 0;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+    /* Important for sticky to work correctly */
+}
+
+/* --- THE KEY TO THE STICKY SIDEBAR --- */
+.rightPanel {
+    position: sticky;
+    top: 2.5rem;
+    /* Aligns with the padding of the main container */
+}
+
+@media (max-width: 900px) {
+    .contentGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .rightPanel {
+        display: none;
+        /* Hide desktop details panel on mobile */
+    }
+
+    .selectionWrapper {
+        padding: 1.5rem 0;
+        /* Adjust padding for mobile view */
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+    }
+
+    .title,
+    .subtitle {
+        padding: 0 1.5rem;
+    }
+
+    .mainContainer {
+        padding: 1rem 0 120px 0;
+    }
+}
+
+/* --- MOBILE STICKY BAR STYLES (Unchanged) --- */
+.mobileStickyBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface-color);
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    animation: slideUp 0.3s ease-out;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .mobileStickyBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.mobileStickyInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileSkipSize {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.mobileSkipPrice {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.mobileContinueButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--surface-color);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
