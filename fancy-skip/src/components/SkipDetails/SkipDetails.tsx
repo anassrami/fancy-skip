@@ -8,7 +8,7 @@ interface SkipDetailsProps {
     onContinue: () => void;
 }
 
-const SkipDetails: React.FC<SkipDetailsProps> = ({ skip, onContinue }) => {
+const SkipDetails: React.FC<SkipDetailsProps> = ({ skip }) => {
     if (!skip) {
         return <div className={styles.detailsContainer}><div className={styles.imagePlaceholder}></div></div>;
     }
@@ -50,7 +50,7 @@ const SkipDetails: React.FC<SkipDetailsProps> = ({ skip, onContinue }) => {
                 </div>
             </div>
 
-            
+
         </div>
     );
 };
